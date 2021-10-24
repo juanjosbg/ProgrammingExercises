@@ -66,5 +66,3 @@ public class Impresion {
         }
     }
 }
-
-//Implemente una clase donde permita visualizar el mayor y menor de tres números ingresados 
