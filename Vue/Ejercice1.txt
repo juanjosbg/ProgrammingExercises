@@ -1,0 +1,47 @@
+// Html
+
+<div id="app">
+        <h1>{{titulo}}</h1>
+        <input type="text" v-model="NuevaF" 
+        @keyup.enter="gregarF"
+        @keyup.delete="borrarF">
+
+        <button @click="gregarF">Agregar</button>
+        <button @click="borrarF">Borrar</button>
+
+        <ul>
+            <li v-for="fruta of frutas">
+                <input type="text">
+                {{fruta.cantidad}} - {{fruta.nombre}}
+                <span v-if="fruta.cantidad === 0"> - sin stock</span>
+            </li>
+        </ul>
+    </div>
+
+
+// js 
+
+const app = new Vue({
+    el: '#app',
+    data: {
+        titulo: 'There we can to create the forms.',
+        frutas:[
+            {nombre: 'Pera',cantidad: 10 },
+            {nombre: 'Papaya',cantidad: 2 }
+        ],
+        NuevaF: ''
+    },
+    methods:{
+        gregarF(){
+            this.frutas.push({
+                nombre: this.NuevaF, 
+                cantidad: 0
+            });
+            this.NuevaF = '';
+        },
+        borrarF(){
+            
+        }
+    }
+    
+})
